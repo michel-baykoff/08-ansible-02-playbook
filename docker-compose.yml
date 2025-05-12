@@ -1,0 +1,32 @@
+name: 08-ansible-02
+services:
+  host01:
+    container_name: host01
+    hostname: host01
+    image: centos:centos7
+    tty: true
+    command: [/bin/bash]
+    networks:
+      - ansible-network
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: "512Mb"
+  host02:
+    container_name: host02
+    hostname: host02
+    image: centos:centos7
+    tty: true
+    command: [/bin/bash]
+    networks:
+      - ansible-network
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: "512Mb"
+
+networks:
+  ansible-network:
+
