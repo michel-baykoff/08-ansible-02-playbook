@@ -3,11 +3,15 @@ services:
   host01:
     container_name: host01
     hostname: host01
-    image: centos:centos7
+    image: debian:stable
+#    image: centos:centos8
     tty: true
     command: [/bin/bash]
     networks:
       - ansible-network
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     deploy:
       resources:
         limits:
@@ -16,11 +20,15 @@ services:
   host02:
     container_name: host02
     hostname: host02
-    image: centos:centos7
+    image: debian:stable
+#    image: centos:centos8
     tty: true
     command: [/bin/bash]
     networks:
       - ansible-network
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     deploy:
       resources:
         limits:
